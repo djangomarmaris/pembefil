@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Yayın Evi</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<section class="banner-style-one">
+            <div class="pattern-layer" style="background-image: url({% static 'assets/images/shape/shape-1.png' %});"></div>
+            <div class="banner-carousel owl-theme owl-carousel">
+
+                {% for product in slider %}
+                <div class="slide-item">
+                    <div class="auto-container">
+                        <div class="content-inner">
+                            <div class="content-box">
+                                <h1><span>{{product.discount}}%</span>{{product.title}}</h1>
+                                <h3>{{product.low}}</h3>
+                                <p>{{product.info}}</p>
+                                <div class="btn-box">
+                                    <a href="{{product.link}}" class="theme-btn-one">Explore Now<i class="flaticon-right-1"></i></a>
+                                </div>
+                            </div>
+                            <figure class="image-box imgae-3"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></figure>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </section>
+
+<br>
+<br>
+<br>
+<section class="shop-section">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h2>Yeni Çıkanlar</h2>
+                    <p>Raflardaki en yeniler</p>
+                    <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
+                </div>
+                <div class="sortable-masonry">
+                    <div class="items-container row clearfix">
+                        {% for product in saler %}
+                        <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals top_rate">
+                            <div class="shop-block-one">
+                                <div class="inner-box">
+                                    <figure class="image-box">
+                                        <a href="{{product.get_absolute_url}}"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></a>
+                                        <ul class="info-list clearfix">
+                                            <li><a href="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
+                                        </ul>
+                                    </figure>
+                                    <div class="lower-content">
+                                        <a href="{{product.get_absolute_url}}">{{product.name}}</a>
+                                        <span class="price">{{product.price}} TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="more-btn centred"><a href="shop.html" class="theme-btn-one">En İyi Satanlar<i class="flaticon-right-1"></i></a></div>
+            </div>
+        </section>
+<br>
+<br>
+<br>
+<section class="shop-section">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h2>Çok Satanlar</h2>
+                    <p>Raflarda en çok satanlar</p>
+                    <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
+                </div>
+                <div class="sortable-masonry">
+                    <div class="items-container row clearfix">
+                        {% for product in news %}
+                        <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals top_rate">
+                            <div class="shop-block-one">
+                                <div class="inner-box">
+                                    <figure class="image-box">
+                                        <a href="{{product.get_absolute_url}}"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></a>
+                                        <ul class="info-list clearfix">
+                                            <li><a href="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
+                                        </ul>
+                                    </figure>
+                                    <div class="lower-content">
+                                        <a href="{{product.get_absolute_url}}">{{product.name}}</a>
+                                        <span class="price">{{product.price}} TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="more-btn centred"><a href="shop.html" class="theme-btn-one">En İyi Satanlar<i class="flaticon-right-1"></i></a></div>
+            </div>
+        </section>
+
+ <section class="cta-section">
+            <div class="image-layer" style="background-image: url({% static '1920.jpg' %});"></div>
+            <div class="auto-container">
+                <div class="cta-inner centred">
+                    <div class="pattern-layer">
+                        <div class="pattern-1" style="background-image: url({% static 'assets/images/shape/shape-2.png' %});"></div>
+                        <div class="pattern-2" style="background-image: url({% static 'assets/images/shape/shape-3.png' %});"></div>
+                    </div>
+                    <h2>Pembe Fil Yayın Evi, yayıncılık dünyasına yepyeni bir soluk getiriyor.</h2>
+                    <p>Pembe Fil Yayın Evi'nin temel amacı, yazarların kendilerini ifade etmeleri için uygun bir platform sağlamaktır. Yayınevi, yaratıcı yazı türlerine ilgi duyan yazarlar için ideal bir seçenek oluşturur. Özgün ve yaratıcı eserlere yönelik bir tutkuyla hareket eden yayınevi, edebi ve sanatsal açıdan zengin eserlerin yayınlanmasına öncelik verir.</p>
+                    <a href="/contact/" class="theme-btn-one">İletişim<i class="flaticon-right-1"></i></a>
+                </div>
+            </div>
+        </section>
+<br>
+<br>
+<br>
+<section class="service-section">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                            <div class="service-block-one">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="flaticon-truck"></i></div>
+                                    <h3><a href="index.html">Ücretsiz Kargo</a></h3>
+                                    <p>Ücretsiz Kargo Avantajı</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                            <div class="service-block-one">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="flaticon-credit-card"></i></div>
+                                    <h3><a href="index.html">Güvenli Alışveriş</a></h3>
+                                    <p>İyzico ile güvenli alışveriş</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                            <div class="service-block-one">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="flaticon-24-7"></i></div>
+                                    <h3><a href="index.html">24/7 Destek</a></h3>
+                                    <p>Online ve Yüz yüze destek</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                            <div class="service-block-one">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="flaticon-undo"></i></div>
+                                    <h3><a href="index.html">İade Garantili</a></h3>
+                                    <p>30 güne kadar ürün iade garantisi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section class="blog-page-section blog-page-1 sec-pad-2">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    {% for blog in blogs %}
+                     <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="{{blog.get_absolute_url}}"><img src="{% if blog.image %}{{ blog.image.url }}{% else %}{% endif %}" alt=""></a></figure>
+                                <div class="lower-content">
+                                    <h3><a href="{{blog.get_absolute_url}}">{{blog.title}}</a></h3>
+                                    <p>{{blog.mini_info | safe}}</p>
+                                    <div class="link"><a href="{{blog.get_absolute_url}}">Daha Fazla<i class="flaticon-right-1"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

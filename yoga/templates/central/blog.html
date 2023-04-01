@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Yayın Evi</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+ <section class="page-title centred">
+            <div class="pattern-layer" style="background-image: url({% static 'assets/images/background/page-title.jpg' %});"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h1>Blog</h1>
+                </div>
+            </div>
+        </section>
+
+    <section class="blog-page-section blog-page-1 sec-pad-2">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    {% for blog in blogs %}
+                     <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                        <div class="news-block-one wow fadeInUp animated animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <figure class="image-box"><a href="{{blog.get_absolute_url}}"><img src="{% if blog.image %}{{ blog.image.url }}{% else %}{% endif %}" alt=""></a></figure>
+                                <div class="lower-content">
+                                    <h3><a href="{{blog.get_absolute_url}}">{{blog.title}}</a></h3>
+                                    <p>{{blog.mini_info | safe}}</p>
+                                    <div class="link"><a href="{{blog.get_absolute_url}}">Daha Fazla<i class="flaticon-right-1"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

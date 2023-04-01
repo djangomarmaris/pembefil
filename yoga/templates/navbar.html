@@ -1,0 +1,171 @@
+{% load static i18n %}
+
+
+<div class="boxed_wrapper">
+        <!-- Preloader -->
+
+
+        <!-- search-popup -->
+        <div id="search-popup" class="search-popup">
+            <div class="close-search"><i class="flaticon-close"></i></div>
+            <div class="popup-inner">
+                <div class="overlay-layer"></div>
+                <div class="search-form">
+                    <form method="post" action="index.html">
+                        <div class="form-group">
+                            <fieldset>
+                                <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
+                                <input type="submit" value="Search Now!" class="theme-btn style-four">
+                            </fieldset>
+                        </div>
+                    </form>
+                    <h3>Recent Search Keywords</h3>
+                    <ul class="recent-searches">
+                        <li><a href="index.html">Finance</a></li>
+                        <li><a href="index.html">Idea</a></li>
+                        <li><a href="index.html">Service</a></li>
+                        <li><a href="index.html">Growth</a></li>
+                        <li><a href="index.html">Plan</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- search-popup end -->
+
+
+        <!-- main header -->
+        <header class="main-header">
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="top-inner clearfix">
+                        <div class="top-left pull-left">
+                            <ul class="info clearfix">
+                                <li><i class="flaticon-email"></i><a href="mailto:info@pembefilyayinevi.com">info@pembefilyayinevi.com</a></li>
+                                <li><i class="flaticon-global"></i> Armutalan Mh. 418. Sk. No:11 Daire:9 Marmaris / Muğla</li>
+                            </ul>
+                        </div>
+                        <div class="top-right pull-right">
+                            <ul class="social-links clearfix">
+                                <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index.html"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-lower">
+                <div class="auto-container">
+                    <div class="outer-box">
+                        <figure class="logo-box"><a href="/"><img width="300" src="{% static 'main.png' %}" alt=""></a></figure>
+                        <div class="menu-area">
+                            <!--Mobile Navigation Toggler-->
+                            <div class="mobile-nav-toggler">
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                            </div>
+                            <nav class="main-menu navbar-expand-md navbar-light">
+                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                    <ul class="navigation clearfix">
+                                        <li class="current dropdown"><a href="/">Ana Sayfa</a>
+
+                                        </li>
+                                        <li class="dropdown"><a href="index.html">Kategoriler</a>
+                                            <ul>
+                                                {% for product in cate %}
+                                                <li><a href="{{product.get_absolute_url}}">{{product.name}}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="/about/">Hakkımızda</a>
+
+                                        </li>
+                                        <li class="dropdown"><a href="/blog/list/">Blog</a>
+
+                                        </li>
+                                        <li><a href="/sss/">SSS</a></li>
+                                        <li><a href="/contact/">İletişim</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <ul class="menu-right-content clearfix">
+
+
+                            {% if request.user.is_authenticated %}
+                            <li><a href="/order/success/"><i class="flaticon-user">{{request.user}}</i></a></li>
+                            {% with total_items=cart|length %}
+                            {% if cart|length > 0 %}
+                            <li class="shop-cart">
+                                <a href="/cart/"><i class="flaticon-shopping-cart-1"></i><span>{{cart|length}}</span></a>
+                            </li>
+                            {% else %}
+                            <li class="shop-cart">
+                                <a href="/cart/"><i class="flaticon-shopping-cart-1"></i><span>{{cart|length}}</span></a>
+                            </li>
+                            {% endif %}
+                            {% endwith %}
+                            {% else %}
+                            <li><a href="/user/login/"><i class="flaticon-user"></i></a></li>
+                            <li class="shop-cart">
+                                <a href="/cart/"><i class="flaticon-shopping-cart-1"></i><span>{{cart|length}}</span></a>
+                            </li>
+                            {% endif %}
+
+                            <!--li>
+                                <div class="search-btn">
+                                    <button type="button" class="search-toggler"><i class="flaticon-search"></i></button>
+                                </div>
+                            </li---->
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="auto-container">
+                    <div class="outer-box clearfix">
+                        <div class="logo-box pull-left">
+                            <figure class="logo"><a href="index.html"><img width="300" src="{% static 'main.png' %}" alt=""></a></figure>
+                        </div>
+                        <div class="menu-area pull-right">
+                            <nav class="main-menu clearfix">
+                                <!--Keep This Empty / Menu will come through Javascript-->
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
+                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+                <div class="contact-info">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Chicago 12, Melborne City, USA</li>
+                        <li><a href="tel:+8801682648101">+88 01682648101</a></li>
+                        <li><a href="mailto:info@example.com">info@example.com</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <ul class="clearfix">
+                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+

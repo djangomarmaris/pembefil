@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% load crispy_forms_tags %}
+
+{% block seo %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+ <section class="page-title centred">
+            <div class="pattern-layer" style="background-image: url({% static 'assets/images/background/page-title.jpg' %});"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h1>{{product.name}}</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><i class="flaticon-home-1"></i><a href="/">Home</a></li>
+                        <li>{{product.name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+<section class="product-details product-details-1">
+            <div class="auto-container">
+                <div class="product-details-content">
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                            <figure class="product-image">
+                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="">
+                                <a href="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" class="lightbox-image"><i class="flaticon-search-2"></i></a>
+                            </figure>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                            <div class="product-info">
+                                <h3>{{product.name}}</h3>
+                                <span class="item-price">$ {{product.price}}</span>
+                                <div class="text">
+                                    <p>{{product.info}}</p>
+                                    <ul class="list clearfix">
+                                        <li>{{product.one}}</li>
+                                        <li>{{product.two}}</li>
+                                        <li>{{product.three}}</li>
+                                    </ul>
+                                </div>
+                                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                  {% csrf_token %}
+                                <div class="othre-options clearfix">
+                                    <div class="item-quantity">
+                                        <input class="quantity-spinner" type="text" value="1" min="1" max="3" name="quantity">
+                                    </div>
+                                    <div class="btn-box"><button type="submit" class="theme-btn-two">Add to cart</button></div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-discription">
+                    <div class="tabs-box">
+
+                        <div class="tabs-content">
+                            <div class="tab active-tab" id="tab-1">
+                                <div class="text">
+                                    <p>{{product.description | safe}}</p>
+                                    <p>{{product.shop | safe}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="related-product">
+                    <div class="sec-title style-two">
+                        <h2>Related Products</h2>
+                        <p>There are some product that we featured for choose your best</p>
+                        <span class="separator" style="background-image: url(assets/images/icons/separator-2.png);"></span>
+                    </div>
+                    <div class="row clearfix">
+                      {% for product in smiller %}
+                        <div class="col-lg-3 col-md-6 col-sm-12 shop-block">
+                            <div class="shop-block-one">
+                                <div class="inner-box">
+                                    <figure class="image-box">
+                                        <a href=""><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></a>
+                                    </figure>
+                                    <div class="lower-content">
+                                        <a href="product-details.html">{{product.name}}</a>
+                                        <span class="price">$ {{product.price}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+{% endblock %}
+
+
+{% block jss %}
+
+{% endblock %}

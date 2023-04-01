@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+   {% block seo %}
+  <title>Yayın Evi</title>
+
+    {% endblock %}
+{% block content %}
+<br>
+<section class="shop-section">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h2>Kitablarımız</h2>
+
+                    <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
+                </div>
+                <div class="sortable-masonry">
+                    <div class="items-container row clearfix">
+                        {% for product in products %}
+                        <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals top_rate">
+                            <div class="shop-block-one">
+                                <div class="inner-box">
+                                    <figure class="image-box">
+                                        <a href="{{product.get_absolute_url}}"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></a>
+                                        <ul class="info-list clearfix">
+                                            <li><a href="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-search"></i></a></li>
+                                        </ul>
+                                    </figure>
+                                    <div class="lower-content">
+                                        <a href="{{product.get_absolute_url}}">{{product.name}}</a>
+                                        <span class="price"> {{product.price}} TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="more-btn centred"><a href="/" class="theme-btn-one">En İyi Satanlar<i class="flaticon-right-1"></i></a></div>
+            </div>
+        </section>
+
+<br>
+
+{% endblock %}

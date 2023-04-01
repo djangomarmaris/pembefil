@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block seo %}
+    <title>Kullanıcı Kayıt</title>
+{% endblock %}
+
+ {% block content %}
+<section class="myaccount-section">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+                        <div class="inner-box login-inner">
+                            <div class="upper-inner">
+                                <img src="{% static '1.png' %}" width="500">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 inner-column">
+                        <div class="inner-box signup-inner">
+                                <div class="upper-inner">
+                                    <h3>Hemen Kayıt Ol</h3>
+                                </div>
+                                <form method="post" class="default-form">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        {{ form.first_name|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.last_name|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.username|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.email|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.password|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.confirm|as_crispy_field }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="theme-btn-two">Kayıt Ol<i class="flaticon-right-1"></i></button>
+                                    </div>
+                                </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ {% endblock  %}

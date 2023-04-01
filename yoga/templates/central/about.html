@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Hakkımda</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+ <section class="page-title centred">
+            <div class="pattern-layer" style="background-image: url({% static 'assets/images/background/page-title.jpg' %});"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h1>Hakkımızda</h1>
+
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- about-section -->
+        <section class="about-section">
+            <div class="auto-container">
+                {% for product in abouts %}
+                <div class="row align-items-center clearfix">
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-column">
+                        <div class="text-inner">
+                            <h2>{{product.title}}</h2>
+
+
+                            <p>{{product.info | safe}}</p>
+                            <a href="/contact/" class="theme-btn-one">İletişim<i class="flaticon-right-1"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 image-column">
+                        <figure class="image-box"><img src="{{product.image.url}}" alt=""></figure>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-column">
+                        <div class="text-inner">
+                            <div class="box">
+                                <h4>{{product.title_two | safe}}</h4>
+                                <p>{{product.info | safe}}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

@@ -1,0 +1,99 @@
+{% load static %}
+ <footer class="main-footer">
+            <div class="footer-top">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12 big-column">
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-md-4 col-sm-12 footer-column">
+                                    <div class="footer-widget logo-widget">
+                                        <figure class="footer-logo"><a href="index.html"><img src="{% static 'main.png' %}" alt=""></a></figure>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 footer-column">
+                                    <div class="footer-widget links-widget">
+                                        <div class="widget-title">
+                                            <h3>Category</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <ul class="links-list clearfix">
+                                                {% for product in cate %}
+                                                <li><a href="{{product.get_absolute_url}}">{{product.name}}</a></li>
+                                                {% endfor %}
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 footer-column">
+                                    <div class="footer-widget links-widget">
+                                        <div class="widget-title">
+                                            <h3>Site</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <ul class="links-list clearfix">
+                                                <li><a href="/about/">Hakkımızda</a></li>
+                                                <li><a href="/blog/list/">Blog</a></li>
+                                                <li><a href="/sss/">SSS</a></li>
+
+                                                <li><a href="/contact/">İletişim</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 big-column">
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-6 col-sm-12 footer-column">
+                                    <div class="footer-widget contact-widget">
+                                        <div class="widget-title">
+                                            <h3>İletişim</h3>
+                                        </div>
+                                        <ul class="info-list clearfix">
+                                            <li><a href="tel:+905534799329">+90 553 479 93 29</a></li>
+                                            <li><a href="mailto:info@pembefilyayinevi.com">info@pembefilyayinevi.com</a></li>
+                                        </ul>
+                                        <ul class="footer-social clearfix">
+                                            <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="index.html"><i class="fab fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 footer-column">
+                                    <div class="footer-widget newsletter-widget">
+                                        <div class="widget-title">
+                                            <h3>Adres</h3>
+                                        </div>
+                                        <div class="widget-content">
+                                            <p>Armutalan Mh. 418. Sk. No:11 Daire:9 Marmaris / Muğla</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container clearfix">
+                    <ul class="cart-list pull-left clearfix">
+                        <li><a href="index.html"><img width="400" src="{% static 'visa.png' %}" alt=""></a></li>
+                        <p><a href="index.html"></a> &copy;2023 CWA </p>
+                    </ul>
+                    <div class="copyright pull-right">
+                        {% for x in done %}
+                        <p><a href="{{x.kvvk.url}}">{{x.name}}</a></p>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+
+
+        <!--Scroll to top-->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <i class="fas fa-long-arrow-alt-up"></i>
+        </button>
